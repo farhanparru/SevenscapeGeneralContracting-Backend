@@ -11,9 +11,9 @@ const PORT = 8000
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['https://www.sevenscape.ae'],
     methods: "GET,POST,PUT,DELETE,PATCH",
-    credentials: true,  // This allows credentials to be included in the request
+    credentials: true, 
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
