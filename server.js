@@ -10,7 +10,13 @@ const PORT = 8000
 
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173'],
+    methods: "GET,POST,PUT,DELETE,PATCH",
+    credentials: true,  // This allows credentials to be included in the request
+    allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
