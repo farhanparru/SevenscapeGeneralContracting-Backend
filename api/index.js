@@ -1,9 +1,9 @@
 const express = require('express')
 require('dotenv').config()
-require('../Backend/config/database')
 const cors = require('cors')
 const bodyParser = require('body-parser');
-const userRouter = require('../Backend/routes/userRouter')
+const userRouter = require('../routes/userRouter')
+const mongoose = require('mongoose')
 
 const app = express()
 const PORT = 8000
@@ -19,6 +19,15 @@ app.use(cors({
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoose.connect('mongodb+srv://farhanparru87:seven123456@cluster0.vrk9ss0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{  
+  useNewUrlParser: true,
+  useUnifiedTopology: true 
+}).then(()=>console.log('Databse connected')).catch((err)=>console.log("err",err))
+
+console.log("Conncted mongo");
+
+
 
 
 // Main Routes endpoint
